@@ -6,7 +6,7 @@ _CRUD App to learn Vue.js and Node.js_
 
 > Client
 ```bash
-npm i && npm run start
+npm i && npm run serve
 ```
 
 > Server
