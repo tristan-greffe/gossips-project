@@ -11,7 +11,7 @@ npm i && npm run serve
 
 > Server
 ```bash
-npm i && npm start
+npm i && node seeds && npm start
 ```
 
 ## 🔑 License
