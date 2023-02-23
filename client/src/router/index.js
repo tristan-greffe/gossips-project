@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import Gossip from '../views/Gossip.vue'
 import Contact from '../views/Contact.vue'
 import Team from '../views/Team.vue'
 import Login from '../views/Login.vue'
@@ -10,6 +11,11 @@ const routes = [
     path: '/',
     name: 'home',
     component: Home,
+  },
+  {
+    path: '/gossips/:id',
+    name: 'gossip',
+    component: Gossip,
   },
   {
     path: '/contact',
@@ -30,7 +36,7 @@ const routes = [
     path: '/signup',
     name: 'signup',
     component: SignUp,
-  },
+  }
 ];
 
 const router = createRouter({
