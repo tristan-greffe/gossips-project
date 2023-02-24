@@ -6,14 +6,14 @@
         <div class="col-md-9 mb-4">
           <section class='text-center'>
             <div class='row'>
-              <div class='col-lg-4 col-md-6 mb-4' v-for="gossip in gossips">
+              <div class='col-lg-4 col-md-6 mb-4' v-for="gossip in gossips" :key="gossip.author">
                 <Gossip :gossip="gossip"/>
               </div>              
             </div>
           </section>
         </div>
         <div class="col-md-3 mb-4">
-          <Form />
+          <Form @fetchGossips="fetchGossips"/>
         </div>
       </div>
     </div>
