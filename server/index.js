@@ -2,11 +2,13 @@ import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import cors from 'cors'
+import bodyParser from 'body-parser'
 
 import GossipRoutes from './routes/gossips.js'
 
 const app = express()
-app.use(express.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 app.use(cors())
 app.use('/gossips', GossipRoutes)
 
