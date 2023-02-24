@@ -14,7 +14,9 @@
             <div class="col-md-6 gx-5 mb-4">
               <h4><strong>{{ gossip.author }}</strong></h4>
               <p class="text-muted">{{ gossip.content }}</p>
+              <a href="" class='btn btn-danger' @click="deleteGossip">Delete</a>
             </div>
+            <UpdateForm />
           </div>
         </section>
 
@@ -25,10 +27,15 @@
 <script>
 import axios from 'axios'
 
+import UpdateForm from '../components/UpdateForm.vue'
+
 const gossipId = window.location.pathname.replace('/gossips/','')
 
 export default {
   name: 'gossip-page',
+  components: {
+    UpdateForm
+  },
   data() {
     return {
       gossip: []
@@ -42,6 +49,10 @@ export default {
           this.gossip = gossip;
         }
       })
+    },
+    async deleteGossip() {
+      this.$router.push('/home')
+      await axios.delete(`http://localhost:5000/gossips/${this.gossip._id}`)
     }
   },
   async mounted() {
