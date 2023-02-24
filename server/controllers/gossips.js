@@ -24,6 +24,17 @@ export const createGossip = async (req, res) => {
   }
 }
 
+export const updateGossip = async (req, res) => {
+  const { id: _id } = req.params
+  const gossip = req.query
+
+  if (!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send(`No gossip with id: ${_id}`)
+
+  const updatedGossip = await Gossip.findByIdAndUpdate(_id, { ...gossip, _id }, { new: true });
+
+  res.json(updatedGossip)
+}
+
 export const deleteGossip = async (req, res) => {
   const { id } = req.params
 

@@ -16,10 +16,9 @@
               <p class="text-muted">{{ gossip.content }}</p>
               <a href="" class='btn btn-danger' @click="deleteGossip">Delete</a>
             </div>
-            <UpdateForm />
+            <UpdateForm :gossip="gossip" @fetchGossips="fetchGossips"/>
           </div>
         </section>
-
       </div>
     </main>
 </template>
@@ -38,7 +37,7 @@ export default {
   },
   data() {
     return {
-      gossip: []
+      gossip: {}
     }
   },
   methods: {

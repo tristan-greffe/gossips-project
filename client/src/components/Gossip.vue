@@ -9,13 +9,12 @@
     <div class='card-body'>
       <h5 class='card-title'>{{ gossip.author }}</h5>
       <p class='card-text'>{{ gossip.content }}</p>
-      <a :href="domainName + 'gossips/'+ gossip._id" class='btn btn-primary'>Read</a>
+      <a :href="this.href" class='btn btn-primary'>Read</a>
     </div>
   </div>
 </template>
 
 <script>
-  const domainName = window.location.href
 
   export default {
     name: 'gossip-component',
@@ -24,7 +23,7 @@
     },
     data() {
       return {
-        domainName: domainName,
+        href: `http://localhost:8080/gossips/${this.gossip._id}`
       }
     }
   };
