@@ -1,4 +1,5 @@
 import Gossip from '../models/gossips.js'
+import mongoose from 'mongoose'
 
 export const getGossips = async (req, res) => {
   try {
@@ -21,4 +22,14 @@ export const createGossip = async (req, res) => {
   } catch (error) {
     res.status(409).json({ message: error.message })
   }
+}
+
+export const deleteGossip = async (req, res) => {
+  const { id } = req.params
+
+  if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No gossip with id: ${id}`)
+
+  await Gossip.findByIdAndRemove(id);
+
+  res.json({ message: 'Post deleted successfully' })
 }
