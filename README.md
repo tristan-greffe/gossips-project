@@ -1,6 +1,7 @@
 # 🤫 Gossip Project
 _CRUD App to learn Vue.js and Node.js_
 
+![Image](./gossip-project.png)
 
 ## 📦 Setup
 
