@@ -1,0 +1,17 @@
+# Sets the base image
+From node:18.14-slim
+
+# Create directory to house our image’s application code
+WORKDIR /app
+
+# Copies the package.json file into "/server" and runs npm i
+COPY ./package.json ./package.json
+COPY ./public ./public
+COPY ./src ./src
+RUN npm install
+
+# Exports
+EXPOSE 8080
+
+# Runs "node server.js" after the above step is completed
+CMD ["npm", "run", "serve"]
